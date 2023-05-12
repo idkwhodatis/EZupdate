@@ -1,0 +1,22 @@
+{
+  "name": "openupdater",
+  "version": "0.0.1",
+  "description": "Update open source softwares",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idkwhodatis/OpenUpdater.git"
+  },
+  "author": "idkwhodatis",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/idkwhodatis/OpenUpdater/issues"
+  },
+  "homepage": "https://github.com/idkwhodatis/OpenUpdater#readme",
+  "devDependencies": {
+    "electron": "^24.3.0"
+  }
+}
