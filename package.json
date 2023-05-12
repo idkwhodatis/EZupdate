@@ -1,7 +1,7 @@
 {
-  "name": "openupdater",
+  "name": "ezupdate",
   "version": "0.0.1",
-  "description": "Update open source softwares",
+  "description": "Update open source software",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/idkwhodatis/OpenUpdater.git"
+    "url": "git+https://github.com/idkwhodatis/EZupdate.git"
   },
   "author": "idkwhodatis",
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/idkwhodatis/OpenUpdater/issues"
+    "url": "https://github.com/idkwhodatis/EZupdate/issues"
   },
-  "homepage": "https://github.com/idkwhodatis/OpenUpdater#readme",
+  "homepage": "https://github.com/idkwhodatis/EZupdate#readme",
   "devDependencies": {
     "@electron-forge/cli": "^6.1.1",
     "@electron-forge/maker-deb": "^6.1.1",
