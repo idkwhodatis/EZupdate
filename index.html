@@ -2,16 +2,25 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';"/>
+    <title>EZ Update</title>
+    <link href="style/main.css" rel="stylesheet">
+    <link href="style/google-font.css" rel="stylesheet"/>
     <script src="scripts/vue.global.min.js"></script>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <p>
-        We are using Node.js <span id="node-version"></span>,
-        Chromium <span id="chrome-version"></span>,
-        and Electron <span id="electron-version"></span>.
-    </p>
+    <div id="app">
+        <div class="toolbar">
+            <span @click="openAddDialog" style="left:10px;top:12px;color:#dfdfdf" class="material-symbols-outlined button">add</span>
+            <span style="width:130px;height:30px;right:10px;top:10px;background-color:#dfdfdf;" class="button"><b>Check Update</b></span>
+        </div>
+
+        <div v-show="showAddDialog" class="dialog">
+            <span @click="closeAddDialog" style="position:absolute;right:10px;top:10px;color:#dfdfdf" class="material-symbols-outlined button">close</span>
+            <label style="top:25px;left:10px;color:white" class="label" for="dir">Directory</label>
+            <input @click="openFile" v-model="dir" style="top:50px;left:10px;right:10px" class="input" type="text" id="dir" readonly>
+        </div>
+    </div>
+
+    <script src="scripts/renderer.js"></script>
 </body>
 </html>
