@@ -6,7 +6,7 @@ const app={
             dir:"",
             ver:"",
             url:"",
-            software:[{name:"Test App",dir:"C:/sb/download/out/in/test/sb/ez.exe",ver:"1.0.1",url:"https://www.runoob.com/html/html-tables.html"},{name:"sbb",dir:"sb",ver:"sb",url:"sb"}]
+            config:[]
         }
     },
     methods:{
@@ -26,10 +26,20 @@ const app={
             const ver=await window.electronAPI.fileVer(dir);
             this.ver=ver;
         },
+        saveConfig(){
+            this.config.push({name:this.name,dir:this.dir,ver:this.ver,url:this.url})
+            console.log(JSON.stringify(this.config));
+            console.log(typeof JSON.stringify(this.config));
+            window.electronAPI.saveConfig(JSON.stringify(this.config,null,2));
+        },
         test(){
             console.log("sb");
             this.dir="sb";
         }
+    },
+    mounted(){
+        console.log(window.electronAPI.loadConfig());
+        this.config=JSON.parse(window.electronAPI.loadConfig());
     }
 }
 Vue.createApp(app).mount("#app");
