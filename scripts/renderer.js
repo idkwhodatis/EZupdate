@@ -26,20 +26,20 @@ const app={
             const ver=await window.electronAPI.fileVer(dir);
             this.ver=ver;
         },
-        saveConfig(){
+        async saveConfig(){
             this.config.push({name:this.name,dir:this.dir,ver:this.ver,url:this.url})
-            console.log(JSON.stringify(this.config));
-            console.log(typeof JSON.stringify(this.config));
-            window.electronAPI.saveConfig(JSON.stringify(this.config,null,2));
+            await window.electronAPI.saveConfig(JSON.stringify(this.config,null,2));
+            this.closeAddDialog();
         },
-        test(){
-            console.log("sb");
-            this.dir="sb";
-        }
+        async test(){
+            const config=await window.electronAPI.loadConfig();
+            console.log(config);
+        },
+
     },
-    mounted(){
-        console.log(window.electronAPI.loadConfig());
-        this.config=JSON.parse(window.electronAPI.loadConfig());
+    async mounted(){
+        const config=await window.electronAPI.loadConfig();
+        this.config=JSON.parse(config);
     }
 }
-Vue.createApp(app).mount("#app");
+const a=Vue.createApp(app).mount("#app");

@@ -7,7 +7,7 @@ app.whenReady().then(()=>{
     ipcMain.handle("openFile",openFile);
     ipcMain.handle("fileVer",fileVer);
     ipcMain.handle("saveConfig",saveConfig);
-    ipcMain.handle("readConfig",readConfig);
+    ipcMain.handle("loadConfig",loadConfig);
 
     const win=new BrowserWindow({
         width:1000,
@@ -16,9 +16,9 @@ app.whenReady().then(()=>{
           preload:path.join(__dirname,"preload.js")
         }
     })
-    win.removeMenu()
-    win.loadFile("index.html")
-    win.webContents.openDevTools()
+    win.removeMenu();
+    win.loadFile("index.html");
+    win.webContents.openDevTools();
 
 })
 app.on("window-all-closed",()=>{
@@ -32,19 +32,27 @@ async function openFile(){
     }
 }
 
-async function fileVer(event,dir){
-    return vi(dir).FileVersion;
+function fileVer(event,dir){
+    try{
+        const ver=vi(dir).FileVersion;
+        return ver;
+    }catch(e){return "";}
 }
 
-async function saveConfig(event,config){
+function saveConfig(event,config){
     fs.writeFile(path.join(__dirname,"config.json"),config,"utf8",function(err){
         if(err){return}
     })
 }
 
-async function readConfig(){
-    fs.readFile(path.join(__dirname,"config.json"),"utf8",function(err,data){
-        if(err){return}
-        return data;
-    })
+async function loadConfig(){
+    return new Promise((resolve,reject)=>{
+        fs.readFile(path.resolve(__dirname,"config.json"),"utf-8",(err,data)=>{
+            if(err){
+                reject(err);
+            }else{
+                resolve(data);
+            }
+        });
+    });
 }

@@ -11,7 +11,21 @@
     <div id="app">
         <div class="toolbar">
             <span @click="openAddDialog" style="left:10px;top:12px;color:#dfdfdf" class="material-symbols-outlined button">add</span>
-            <span style="width:130px;height:30px;right:10px;top:10px;background-color:#dfdfdf;" class="button"><b>Check Update</b></span>
+            <span @click="test" style="width:130px;height:30px;right:10px;top:10px;background-color:#dfdfdf;" class="button"><b>Check Update</b></span>
+        </div>
+
+        <div style="padding-top:50px;max-height:100vh-50px;overflow:auto">
+            <div style="font-family:raleway-medium" class="container" v-for="i in config">
+                <label style="position:relative;top:15px;font-size:28px" class="label"><b>{{i.name}}</b></label>
+                <span style="position:relative;top:20px;left:20px;font-size:28px" class="material-symbols-outlined button">edit</span>
+                <span style="position:relative;top:20px;left:25px;font-size:28px" class="material-symbols-outlined button">delete</span><br>
+                <label style="position:relative;top:25px" class="label"><b>Directory</b></label>
+                <label style="position:relative;top:25px;left:10px">{{i.dir}}</label><br>
+                <label style="position:relative;top:30px" class="label"><b>Version</b></label>
+                <label style="position:relative;top:30px;left:10px">{{i.ver}}</label><br>
+                <label style="position:relative;top:35px" class="label"><b>Repository Url</b></label>
+                <label style="position:relative;top:35px;left:10px">{{i.url}}</label>
+            </div>
         </div>
 
         <div v-show="showAddDialog" class="dialog">
@@ -26,18 +40,6 @@
             <input v-model="url" style="top:280px;left:10px;right:10px" class="input" type="text" id="ver">
             <span @click="saveConfig" style="width:100px;height:30px;top:335px;left:130px;background-color:white;" class="button"><b>Add</b></span>
             <span @click="closeAddDialog" style="width:100px;height:30px;top:335px;right:130px;background-color:white;" class="button"><b>Cancel</b></span>
-        </div>
-
-        <div style="font-family:raleway-medium;" class="container" v-for="i in config">
-            <label style="position:relative;top:15px;font-size:28px" class="label"><b>{{i.name}}</b></label>
-            <span style="position:relative;top:20px;left:20px;font-size:28px" class="material-symbols-outlined button">edit</span>
-            <span style="position:relative;top:20px;left:25px;font-size:28px" class="material-symbols-outlined button">delete</span><br>
-            <label style="position:relative;top:25px" class="label"><b>Directory</b></label>
-            <label style="position:relative;top:25px;left:10px">{{i.dir}}</label><br>
-            <label style="position:relative;top:30px" class="label"><b>Version</b></label>
-            <label style="position:relative;top:30px;left:10px">{{i.ver}}</label><br>
-            <label style="position:relative;top:35px" class="label"><b>Repository Url</b></label>
-            <label style="position:relative;top:35px;left:10px">{{i.url}}</label>
         </div>
     </div>
 
