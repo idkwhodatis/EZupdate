@@ -16,8 +16,28 @@
 
         <div v-show="showAddDialog" class="dialog">
             <span @click="closeAddDialog" style="position:absolute;right:10px;top:10px;color:#dfdfdf" class="material-symbols-outlined button">close</span>
-            <label style="top:25px;left:10px;color:white" class="label" for="dir">Directory</label>
-            <input @click="openFile" v-model="dir" style="top:50px;left:10px;right:10px" class="input" type="text" id="dir" readonly>
+            <label style="top:50px;left:10px;color:white" class="label" for="name">Name</label>
+            <input v-model="url" style="top:80px;left:10px;right:10px" class="input" type="text" id="name">
+            <label style="top:120px;left:10px;color:white" class="label" for="dir">Directory</label>
+            <input @click="openFile" v-model="dir" style="top:150px;left:10px;right:10px" class="input" type="text" id="dir" readonly>
+            <label style="top:190px;left:10px;color:white" class="label" for="ver">Version</label>
+            <input v-model="ver" style="top:210px;left:10px;right:10px" class="input" type="text" id="ver">
+            <label style="top:250px;left:10px;color:white" class="label" for="ver">Repository Url</label>
+            <input v-model="url" style="top:280px;left:10px;right:10px" class="input" type="text" id="ver">
+            <span style="width:100px;height:30px;top:335px;left:130px;background-color:white;" class="button"><b>Add</b></span>
+            <span @click="closeAddDialog" style="width:100px;height:30px;top:335px;right:130px;background-color:white;" class="button"><b>Cancel</b></span>
+        </div>
+
+        <div style="font-family:raleway-medium;" class="container" v-for="s in software">
+            <label style="position:relative;top:15px;font-size:28px" class="label"><b>{{s.name}}</b></label>
+            <span style="position:relative;top:20px;left:20px;font-size:28px" class="material-symbols-outlined button">edit</span>
+            <span style="position:relative;top:20px;left:25px;font-size:28px" class="material-symbols-outlined button">delete</span><br>
+            <label style="position:relative;top:25px" class="label"><b>Directory</b></label>
+            <label style="position:relative;top:25px;left:10px">{{s.dir}}</label><br>
+            <label style="position:relative;top:30px" class="label"><b>Version</b></label>
+            <label style="position:relative;top:30px;left:10px">{{s.ver}}</label><br>
+            <label style="position:relative;top:35px" class="label"><b>Repository Url</b></label>
+            <label style="position:relative;top:35px;left:10px">{{s.url}}</label>
         </div>
     </div>
 
