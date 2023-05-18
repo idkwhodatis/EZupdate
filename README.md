@@ -1,4 +1,5 @@
 # EZ Update
+Update open source software from their github repos on windows
 ## Build
 - Make sure node.js and npm are installed, you can check with `node -v` and `npm -v`
 - Download files or clone repo, then open terminal in that directory
