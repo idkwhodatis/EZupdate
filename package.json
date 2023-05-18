@@ -24,7 +24,11 @@
     "@electron-forge/maker-rpm": "^6.1.1",
     "@electron-forge/maker-squirrel": "^6.1.1",
     "@electron-forge/maker-zip": "^6.1.1",
+    "7zip-min": "^1.4.4",
+    "adm-zip": "^0.5.10",
     "electron": "^24.3.0",
+    "tar": "^6.1.15",
+    "unrar": "^0.2.0",
     "win-version-info": "^6.0.1"
   },
   "dependencies": {

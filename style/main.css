@@ -55,6 +55,12 @@ body{
     outline:none;
 }
 
+.checkbox{
+    margin:0;
+    accent-color:black;
+    zoom:150%;
+}
+
 .container{
     width:100%-30px;
     height:150px;

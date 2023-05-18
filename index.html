@@ -15,7 +15,7 @@
         </div>
 
         <div style="position:absolute;top:50px;height:100vh-50px;width:100%;overflow:auto">
-            <div style="font-family:raleway-medium" class="container" v-for="i in config">
+            <div v-for="i in config" style="font-family:raleway-medium" class="container">
                 <label style="position:relative;top:15px;font-size:28px" class="label"><b>{{i.name}}</b></label>
                 <span @click="openEditDialog(i.id)" style="position:relative;top:20px;left:20px;font-size:28px" class="material-symbols-outlined button">edit</span>
                 <span @click="openDelDialog(i.id)" style="position:relative;top:20px;left:25px;font-size:28px" class="material-symbols-outlined button">delete</span><br>
@@ -43,10 +43,25 @@
             <span @click="closeAddDialog" style="width:100px;height:30px;top:335px;right:130px;background-color:white;" class="button"><b>Cancel</b></span>
         </div>
 
-        <div v-show="showDelDialog" style="text-align:center;" class="dialog">
+        <div v-show="showDelDialog" style="text-align:center" class="dialog">
             <p style="position:relative;top:70px;color:white;font-size:40px">Are You Sure You Want To Delete This?</p>
             <span @click="delConfig" style="width:100px;height:30px;top:335px;left:130px;background-color:white;" class="button"><b>Delete</b></span>
             <span @click="closeDelDialog" style="width:100px;height:30px;top:335px;right:130px;background-color:white;" class="button"><b>Cancel</b></span>
+        </div>
+
+        <div v-show="showSelectDialog" class="dialog">
+            <p style="margin-top:10px;margin-bottom:10px;color:white;font-size:x-large;text-align:center">Select items that you want to update</p>
+            <div style="font-size:larger;padding-left:20px;max-height:300px;overflow:auto">
+                <div v-for="i in pending">
+                    <input style="position:relative;top:2px;margin:5px;color:white" v-model="i.update" type="checkbox" class="checkbox">
+                    <label style="position:relative;display:inline;padding:5px;color:white" class="label">{{i.name}}</label>
+                    <label style="position:relative;display:inline;padding:5px;color:white" class="label">{{i.v1}}</label>
+                    <p style="position:relative;display:inline;padding:5px;color:white;cursor:default;" class="label">=></p>
+                    <label style="position:relative;display:inline;padding:5px;color:white" class="label">{{i.v2}}</label>
+                </div>
+                <span style="width:100px;height:30px;bottom:10px;left:130px;background-color:white;" class="button"><b>Update</b></span>
+                <span style="width:100px;height:30px;bottom:10px;right:130px;background-color:white;" class="button"><b>Cancel</b></span>
+            </div>
         </div>
     </div>
 
